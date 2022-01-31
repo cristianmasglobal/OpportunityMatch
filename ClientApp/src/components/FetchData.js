@@ -1,59 +1,32 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 
-export class FetchData extends Component {
-  static displayName = FetchData.name;
+export function FetchData() {
+  const [todos, setTodos] = useState();
+  const apiConsuming = `https://pokeapi.co/api/v2/pokemon/`
 
-  constructor(props) {
-    super(props);
-    this.state = { forecasts: [], loading: true };
+  const fetcApi = async () => {
+    const res = await fetch(apiConsuming)
+    const responseJSON = await res.json()
+    setTodos(responseJSON)
+    console.log(todos)
   }
 
-  componentDidMount() {
-    this.populateWeatherData();
-  }
+  useEffect(()=>{
+    fetcApi()
+  },[])
 
-  static renderForecastsTable(forecasts) {
-    return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
-  }
-
-  render() {
-    let contents = this.state.loading
-      ? <p><em>Loading...</em></p>
-      : FetchData.renderForecastsTable(this.state.forecasts);
-
-    return (
-      <div>
-        <h1 id="tabelLabel" >Weather forecast</h1>
-        <p>This component demonstrates fetching data from the server.</p>
-        {contents}
-      </div>
-    );
-  }
-
-  async populateWeatherData() {
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
-  }
+  return (
+    <>
+    <div>
+      <ul>
+        {! todos ? "Cargando ...":
+        todos.results.map((todo, index)=>{
+          return (<>
+            <li>{todos.results[index].name}</li>
+          </>)
+        })}
+      </ul>
+    </div>
+    </>
+  )
 }
