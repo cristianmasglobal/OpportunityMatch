@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OM_Integration.Models
 {
-    [Table("Clients")]
-    public class Client
+    [Table("Customers")]
+    public class Customer
     {
         [Key]
         public int id { get; set; }
