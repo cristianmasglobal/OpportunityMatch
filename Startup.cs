@@ -68,7 +68,10 @@ namespace _POC_Integration
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                        name: "DefaultApi",
+                        pattern: "data/{controller}"                
+                    );
             });
 
             app.UseSpa(spa =>

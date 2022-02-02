@@ -14,6 +14,6 @@ namespace OM_Integration.Context
 
         }
 
-        public DbSet<Client> clients { get; set; }
+        public DbSet<Customer> customers { get; set; }
     }
 }
