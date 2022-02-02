@@ -9,10 +9,12 @@ namespace OM_Integration.Models
         [Key]
         public int id { get; set; }
 
-        public string name { get; set; }
+        public string clientName { get; set; }
 
-        public string approverName { get; set; }
+        public string approveName { get; set; }
 
-        public string approverEmail { get; set; }
+        public string approveEmail { get; set; }
+
+        public bool isMSArequired { get; set; }
     }
 }
