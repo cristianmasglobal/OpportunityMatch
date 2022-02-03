@@ -4,6 +4,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Box, Checkbox, FormControlLabel } from '@material-ui/core';
 
+import '../../assets/css/addNewClient.css';
+
 const defaultValues = {
     clientName: "",
     approveName: "",
@@ -11,10 +13,11 @@ const defaultValues = {
     isMSArequired: false,
 };
 
-export function AddNewClient() {
+export default function AddNewClient() {
 
     const [formValues, setFormValues] = useState(defaultValues);
     const [checked, setChecked] = useState(true);
+    const [response, setResponse] = useState(0);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -28,14 +31,31 @@ export function AddNewClient() {
         setChecked(event.target.checked);
     };
 
-    const handleSubmit = (event) => {
+    const handleCreate = (event) => {
         formValues.isMSArequired = checked;
         event.preventDefault();
         console.log(formValues);
+        setResponse(1)
+        console.log(response)
+        alert("Create account successfully");
+    };
+
+    const handleEdit = (event) => {
+        event.preventDefault();
+        setResponse(2)
+        console.log(response)
+        alert("Edit account successfully");
+    };
+
+    const handleDelete = (event) => {
+        event.preventDefault();
+        setResponse(3)
+        console.log(response)
+        alert("The account has been deleted successfully");
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleCreate}>
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <br></br>
@@ -86,9 +106,27 @@ export function AddNewClient() {
                     <br></br>
                 </Grid>
             </Grid>
-            <Button variant="contained" color="primary" type="submit" onSubmit={handleSubmit}>
-                Submit
-            </Button>
+            <Grid sx={{ flexGrow: 1 }} container spacing={2}>
+                <Grid item xs={12}>
+                    <Grid container justifyContent="center" spacing={2}>
+                        <Grid item>
+                            <Button variant="contained" color="success" type="submit" onSubmit={handleCreate}>
+                                Add
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button variant="contained" color="primary" type="submit" onSubmit={handleEdit}>
+                                Edit
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button variant="contained" color="secondary" type="submit" onSubmit={handleDelete}>
+                                Delete
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         </form>
     );
 };
