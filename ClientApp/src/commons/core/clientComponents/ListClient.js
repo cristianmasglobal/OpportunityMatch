@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Table from '@material-ui/core/Table';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -6,8 +6,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TablePagination  from '@material-ui/core/TablePagination';
-import { Row } from '../components/Row'
+import TablePagination from '@material-ui/core/TablePagination';
+import { Row } from '../../components/Row'
 
 const rows = [
   createData('JCI', 'Cristian Ceballos', 'cristian.ceballos@masglobalconsulting.com', true, 'Details'),
@@ -48,7 +48,7 @@ export default function ListClient() {
 
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [page, setPage] = React.useState(0);
-  
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -60,25 +60,25 @@ export default function ListClient() {
 
   return (
     <>
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell><strong>Client name</strong></TableCell>
-            <TableCell align="right"><strong>Manager name</strong></TableCell>
-            <TableCell align="right"><strong>Manager email</strong></TableCell>
-            <TableCell align="right"><strong>MSA</strong></TableCell>
-            <TableCell align="right"><strong>Details</strong></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-            <Row key={row.clientName} row={row} />
-          ))}
-        </TableBody>
-      </Table>
-      <TablePagination
+      <TableContainer component={Paper}>
+        <Table aria-label="collapsible table">
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell><strong>Client name</strong></TableCell>
+              <TableCell align="right"><strong>Manager name</strong></TableCell>
+              <TableCell align="right"><strong>Manager email</strong></TableCell>
+              <TableCell align="right"><strong>MSA</strong></TableCell>
+              <TableCell align="right"><strong>Details</strong></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+              <Row key={row.clientName} row={row} />
+            ))}
+          </TableBody>
+        </Table>
+        <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={rows.length}
@@ -87,7 +87,7 @@ export default function ListClient() {
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
-    </TableContainer>
-        </>
+      </TableContainer>
+    </>
   );
 }

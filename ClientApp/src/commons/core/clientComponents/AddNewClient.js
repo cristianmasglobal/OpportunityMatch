@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Box, Checkbox, FormControlLabel } from '@material-ui/core';
 
-import '../../assets/css/addNewClient.css';
+import '../../../assets/css/addNewClient.css';
 
 const defaultValues = {
     clientName: "",

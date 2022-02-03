@@ -30,6 +30,9 @@ export function NavMenu () {
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/add-new-client">Add new client</NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/requisition">New requisition</NavLink>
+                </NavItem>
               </ul>
             </Collapse>
           </Container>
