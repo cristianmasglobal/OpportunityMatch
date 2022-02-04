@@ -77,18 +77,23 @@ namespace OM_Integration.Controllers
         [HttpPut("customers/{id}")]
         public async Task<IActionResult> Update(int? id, [FromBody] Customer client)
         {
+
+            if (id == null)
+                return new ObjectResult("Customer id is null") { StatusCode = 400 };
+
             Customer clientExist =  await CustomerExist(id);
 
             if (clientExist == null)
                 return new ObjectResult("Customer not found") { StatusCode = 400 };
 
-            _context.customers.Update(client);
+            client.id = id.GetValueOrDefault();
+            _context.Entry(clientExist).CurrentValues.SetValues(client);
             var result = await _context.SaveChangesAsync().ConfigureAwait(false);
 
             if (result == 1)
-                return new ObjectResult("Customer deleted") { StatusCode = 200 };
+                return new ObjectResult("Customer Updated") { StatusCode = 200 };
 
-            return new ObjectResult("Customer removal error") { StatusCode = 200 };
+            return new ObjectResult("Customer updated error") { StatusCode = 400 };
         }
 
 
