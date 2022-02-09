@@ -1,6 +1,6 @@
 import React from 'react';
-import AddNewClient from '../core/clientComponents/AddNewClient';
-import ListClient from '../core/clientComponents/ListClient';
+import AddNewClient from '../components/AddNewClient';
+import ListClient from '../components/ListClient';
 
 export function ClientLayout() {
     return (

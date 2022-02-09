@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicInfo } from '../core/requisitionComponents/BasicInfo';
+import { BasicInfo } from '../components/BasicInfo';
 
 
 export function RequisitionLayout(){
