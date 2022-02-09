@@ -1,10 +1,10 @@
 import React from 'react';
-import Routes from './routes/Routes';
+import AppRouter from '@app/AppRouter';
 
 export default function App() {
 
     return (
-     <Routes/>
+     <AppRouter/>
     );
   }
 

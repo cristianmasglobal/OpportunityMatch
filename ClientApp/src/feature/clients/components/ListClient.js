@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from '@material-ui/core/TablePagination';
-import { Row } from '../../../commons/components/Row'
+import { Row } from '@shared/components/Row'
 
 const rows = [
   createData('JCI', 'Cristian Ceballos', 'cristian.ceballos@masglobalconsulting.com', true, 'Details'),
@@ -46,8 +46,8 @@ function createData(clientName, managerName, managerEmail, msa, details) {
 
 export default function ListClient() {
 
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [page, setPage] = useState(0);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

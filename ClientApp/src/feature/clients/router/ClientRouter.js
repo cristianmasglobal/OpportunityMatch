@@ -1,13 +1,13 @@
 import React from 'react';
-import { ClientLayout } from '../pages/ClientLayout';
+import { ClientLayoutPage } from '@feature/clients/pages/ClientLayoutPage';
 
-import '../styles/custom.css'
+import '@feature/clients/styles/custom.css'
 
 export function ClientRouter() {
 
     return (
       <>
-         <ClientLayout/>   
+         <ClientLayoutPage/>   
       </>
     );
   }

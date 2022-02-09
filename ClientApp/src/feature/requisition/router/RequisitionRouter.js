@@ -1,11 +1,11 @@
 import React from 'react';
-import { RequisitionLayout } from '../pages/RequisitionLayout';
+import { RequisitionLayoutPage } from '@feature/requisition/pages/RequisitionLayoutPage';
 
 export function RequisitionRouter() {
 
     return (
       <>
-        <RequisitionLayout/>
+        <RequisitionLayoutPage/>
       </>
     );
   }

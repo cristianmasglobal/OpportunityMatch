@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { Checkbox, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
 import CircleChecked from '@material-ui/icons/CheckCircleOutline';
 
-// import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-// import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
-// import DatePicker from '@material-ui/lab/DatePicker';
-
 export function BasicInfo() {
 
     const defaultValues = {
@@ -33,17 +29,17 @@ export function BasicInfo() {
     const [seniority, setSeniority] = useState('');
     const [available, setAvailable] = useState('');
     const [currency, setCurrency] = useState('');
-    const [location, setLocation] = useState('');
+    // const [location, setLocation] = useState('');
     const [priority, setPriority] = useState(0);
     // const [value, setValue] = useState<Date | null>(null);
 
-    const handleData = (e) => {
-        const { name, value } = e.target;
-        setFormValues({
-            ...formValues,
-            [name]: value,
-        });
-    }
+    // const handleData = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormValues({
+    //         ...formValues,
+    //         [name]: value,
+    //     });
+    // }
 
     const handleChangeClient = (event) => {
         setClient(event.target.value);
@@ -65,9 +61,9 @@ export function BasicInfo() {
         setCurrency(event.target.value);
     };
 
-    const handleChangeLocation = (event) => {
-        setLocation(event.target.value);
-    };
+    // const handleChangeLocation = (event) => {
+    //     setLocation(event.target.value);
+    // };
 
     const handleChangeEnglish = (event) => {
         setChecked(event.target.checked);
@@ -252,16 +248,6 @@ export function BasicInfo() {
                     Open on:
                 </Grid>
                 <Grid item xs={2}>
-                    {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DatePicker
-                            label="Basic example"
-                            value={value}
-                            onChange={(newValue) => {
-                                setValue(newValue);
-                            }}
-                            renderInput={(params) => <TextField {...params} />}
-                        />
-                    </LocalizationProvider> */}
                 </Grid>
             </Grid>
         </>
