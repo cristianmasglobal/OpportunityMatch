@@ -2,15 +2,13 @@ import React, {useState, useEffect} from 'react';
 
 export function FetchData() {
   const [todos, setTodos] = useState([]);
-    const apiConsuming = `https://localhost:44324/customers`
+    const apiConsuming = `https://pokeapi.co/api/v2/pokemon/`
 
   const fetcApi = async () => {
     const res = await fetch(apiConsuming)
     const responseJSON = await res.json()
       console.log(responseJSON)
-      console.log(responseJSON[0])
       setTodos(responseJSON)
-      console.log(todos)
   }
 
   useEffect(()=>{

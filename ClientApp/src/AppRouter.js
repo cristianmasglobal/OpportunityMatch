@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router';
 import { Home } from '@shared/pages/Home';
 import { FetchData } from '@shared/pages/FetchData';
 import { Counter } from '@shared/pages/Counter';
@@ -8,7 +7,7 @@ import { ClientRouter } from '@feature/clients/router/ClientRouter';
 import { RequisitionRouter } from '@feature/requisition/router/RequisitionRouter';
 import { Container } from 'reactstrap';
 
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
 export default function AppRouter() {
