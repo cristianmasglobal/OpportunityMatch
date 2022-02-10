@@ -1,8 +1,8 @@
 import React from 'react';
-import { BasicInfo } from '../core/requisitionComponents/BasicInfo';
+import { BasicInfo } from '@feature/requisition/components/BasicInfo';
 
 
-export function RequisitionLayout(){
+export function RequisitionLayoutPage(){
 
     const handleSubmit = () => {
 

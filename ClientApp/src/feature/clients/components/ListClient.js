@@ -7,13 +7,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from '@material-ui/core/TablePagination';
-import { Row } from '../../components/Row'
+import { Row } from '@shared/components/Row'
 
 const rows = [
   createData('JCI', 'Cristian Ceballos', 'cristian.ceballos@masglobalconsulting.com', true, 'Details'),
   createData('MELI', 'Natalia Murcia', 'natalia.murcia@masglobalconsulting.com', false, 'Details'),
   createData('CLOUD', 'Jaime Camargo', 'j.camargo@masglobalconsulting.com', true, 'Details'),
-  createData('MATTELSA', 'Alejo', 'alejito@masglobalconsulting.com', false, 'Details'),
+  createData('MATTELSA', 'Alejo el mejorcito', 'alejito@masglobalconsulting.com', false, 'Details'),
   createData('JEEP', 'Martin', 'Martin@masglobalconsulting.com', false, 'Details'),
   createData('Renault', 'Onofre', 'a@masglobalconsulting.com', false, 'Details'),
   createData('Toyota', 'Alberto', 'b@masglobalconsulting.com', false, 'Details'),
@@ -46,8 +46,8 @@ function createData(clientName, managerName, managerEmail, msa, details) {
 
 export default function ListClient() {
 
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [page, setPage] = useState(0);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
